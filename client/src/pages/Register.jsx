@@ -15,14 +15,11 @@ const Register = () => {
         }
 
         axios.post('http://localhost:4000/register', data).then((response) => {
-            if(response.status == 200){
-                alert('Registration successful')
-            } 
-            else{
-                alert('Registration Failed')
-            }
+            alert('Registration success')
+        }).catch((err) => {
+            alert('User already exists')
         })
-    }   
+    }
   return (
     <form className='register' onSubmit={register}>
         <h1>Register</h1>

@@ -22,14 +22,39 @@ app.get('/', (req,res) => {
 app.post('/register', async (req,res) => {
     const {username, password} = req.body;
     try {
-        const response = await UserModel.create({
-            username,
-            password: bcrypt.hashSync(password, salt)
-        })
-        res.status(200).json({message: "User created successfully"})
+        const checkUser = await UserModel.findOne({username})
+        if(checkUser){
+            res.status(400).json({message: "User already exists"})
+        }
+        else {
+            const response = await UserModel.create({
+                username,
+                password: bcrypt.hashSync(password, salt)
+            })
+            res.status(200).json({message: "User created successfully"})
+        }
+        
     } catch (error) {
         console.log(error)
         res.status(400).json({message: "User not created"})
+    }
+   
+})
+
+app.post('/login', async (req,res) => {
+    const {username, password} = req.body;
+    try {
+        const userDoc = await UserModel.findOne({username: username})
+        const passOk = bcrypt.compareSync(password, userDoc.password)
+        if(passOk){
+            res.status(200).json({message: "Logged in"})
+        }
+        else {
+            res.status(400).json({message: "Failed"})
+        }
+    } catch (error) {
+        console.log(error)
+        res.status(400).json({message: "Failed"})
     }
    
 })
