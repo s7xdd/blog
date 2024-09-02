@@ -101,6 +101,6 @@ input:focus{
   border-color: blue;
 }
 
-form h1{
+form.login h1 form.register h1{
   text-align: center;
 }

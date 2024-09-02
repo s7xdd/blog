@@ -7,12 +7,14 @@ const { default: mongoose } = require('mongoose')
 const UserModel = require('./Models/UserSchema')
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken')
+const cookieParser = require('cookie-parser')
 
 var salt = bcrypt.genSaltSync(10);
 const secret = 'abcaaaabbbbccccaaaaabc'
 
-app.use(cors())
+app.use(cors({credentials:true , origin: 'http://localhost:5173'}))
 app.use(bodyParser.json())
+app.use(cookieParser())
 
 mongoose.connect(process.env.MONGO)
     .then((response) => console.log('Mongo connection success'))
@@ -53,7 +55,10 @@ app.post('/login', async (req,res) => {
             //logged in
             jwt.sign({username,id:userDoc._id}, secret, {}, (err,token) => {
                 if (err) throw err;
-                res.json(token)
+                res.cookie('token', token).json({
+                    id:userDoc._id,
+                    username,
+                })
             })
         }
         else {
@@ -65,6 +70,23 @@ app.post('/login', async (req,res) => {
         res.status(400).json({message: "Failed"})
     }
    
+})
+
+app.get('/profile', (req,res) => {
+    const {token} = req.cookies;
+
+    jwt.verify(token, secret, {}, (err,info) => {
+        if(err) throw err;
+        res.json(info)
+    })    
+})
+
+app.post('/logout', (req,res) => {
+    res.cookie('token', '').json('ok')
+})
+
+app.post('/post', (req,res) => {
+    
 })
 
 app.listen(4000, () => {
