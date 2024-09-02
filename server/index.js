@@ -6,8 +6,11 @@ const bodyParser = require('body-parser')
 const { default: mongoose } = require('mongoose')
 const UserModel = require('./Models/UserSchema')
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken')
 
 var salt = bcrypt.genSaltSync(10);
+const secret = 'abcaaaabbbbccccaaaaabc'
+
 app.use(cors())
 app.use(bodyParser.json())
 
@@ -47,9 +50,14 @@ app.post('/login', async (req,res) => {
         const userDoc = await UserModel.findOne({username: username})
         const passOk = bcrypt.compareSync(password, userDoc.password)
         if(passOk){
-            res.status(200).json({message: "Logged in"})
+            //logged in
+            jwt.sign({username,id:userDoc._id}, secret, {}, (err,token) => {
+                if (err) throw err;
+                res.json(token)
+            })
         }
         else {
+            //not logged in
             res.status(400).json({message: "Failed"})
         }
     } catch (error) {
@@ -62,3 +70,5 @@ app.post('/login', async (req,res) => {
 app.listen(4000, () => {
     console.log("Listening")
 })
+
+
