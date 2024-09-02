@@ -8,13 +8,16 @@ const UserModel = require('./Models/UserSchema')
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken')
 const cookieParser = require('cookie-parser')
+const multer = require('multer')
+const uploadMiddleware = multer({dest: 'uploads/'})
 
 var salt = bcrypt.genSaltSync(10);
 const secret = 'abcaaaabbbbccccaaaaabc'
 
-app.use(cors({credentials:true , origin: 'http://localhost:5173'}))
-app.use(bodyParser.json())
-app.use(cookieParser())
+app.use(cors({credentials:true , origin: 'http://localhost:5173'}));
+app.use(bodyParser.json());
+app.use(cookieParser());
+
 
 mongoose.connect(process.env.MONGO)
     .then((response) => console.log('Mongo connection success'))
@@ -85,8 +88,8 @@ app.post('/logout', (req,res) => {
     res.cookie('token', '').json('ok')
 })
 
-app.post('/post', (req,res) => {
-    
+app.post('/post', uploadMiddleware.single('file'), (req,res) => {
+    res.json(req.file)
 })
 
 app.listen(4000, () => {
