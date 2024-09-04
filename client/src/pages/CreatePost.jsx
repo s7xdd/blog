@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css'
+import { Navigate } from 'react-router-dom'
 
 const modules = {
     toolbar: [
@@ -24,6 +25,7 @@ const CreatePost = (ev) => {
     const [summary, setSummary] = useState('')
     const [content, setContent] = useState('')
     const [files, setFiles] = useState('')
+    const [redirect, setRedirect] = useState(false)
 
     async function createNewPost(ev){
         const data = new FormData()
@@ -40,10 +42,15 @@ const CreatePost = (ev) => {
         })
 
         if(response.ok){
-            response.json().then(files => {
-                console.log(files)
-            })
+            alert('Post created successfully')
+            setRedirect(true)
+        } else{
+                alert('File is required')
         }
+  }
+
+  if(redirect){
+    return <Navigate to={'/'}/>
   }
 
   return (
