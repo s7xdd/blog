@@ -19,6 +19,7 @@ const secret = 'abcaaaabbbbccccaaaaabc'
 app.use(cors({credentials:true , origin: 'http://localhost:5173'}));
 app.use(bodyParser.json());
 app.use(cookieParser());
+app.use('/uploads', express.static(__dirname + '/uploads'))
 
 
 mongoose.connect(process.env.MONGO)
@@ -91,30 +92,39 @@ app.post('/logout', (req,res) => {
 })
 
 app.post('/post', uploadMiddleware.single('file'), async (req,res) => {
-    try {
+    try{
         const {originalname,path} = req.file;
         const parts = originalname.split('.');
         const ext = parts[parts.length-1]
         const newPath = path + '.' + ext
         fs.renameSync(path, newPath)
         
-        const{title,summary,content} = req.body;
-        
-        const postDoc = await PostModel.create({
+        const {token} = req.cookies;
+
+        jwt.verify(token, secret, {}, async (err,info) => {
+            if(err) throw err;
+            const{title,summary,content} = req.body;
+            const postDoc = await PostModel.create({
                 title,      
                 summary,    
                 content,    
                 cover: newPath,
+                author: info.id,
             })
-
-        res.json(postDoc);
-
-    } catch (error) {
-        res.status(400).json({msg: "File is required"})
+            res.json(postDoc);
+        })      
     }
-    
 
-    
+    catch(error){
+        res.status(400).json({msg: 'Error'})
+    }
+
+})
+
+
+app.get('/post', async (req,res) => {
+    const posts = await PostModel.find().populate('author', 'username');
+    res.json(posts);
 })
 
 app.listen(4000, () => {
