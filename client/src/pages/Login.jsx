@@ -17,7 +17,7 @@ const Login = () => {
             password: password
         }
 
-        const response = await fetch('http://localhost:4000/login', {
+        const response = await fetch(`${import.meta.env.VITE_URL}/login`, {
           method: 'POST',
           body: JSON.stringify({username,password}),
           headers: {'Content-Type': 'application/json'},

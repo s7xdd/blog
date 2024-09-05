@@ -14,7 +14,7 @@ const Register = () => {
             password: password
         }
 
-        axios.post('http://localhost:4000/register', data).then((response) => {
+        axios.post(`${import.meta.env.VITE_URL}/register`, data).then((response) => {
             alert('Registration success')
         }).catch((err) => {
             alert('User already exists')

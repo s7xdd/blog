@@ -5,7 +5,7 @@ import Post from '../components/post'
 const Home = () => {
   const [posts, setPosts] = useState([])
   useEffect(() => {
-    fetch('http://localhost:4000/post').then((response) => {
+    fetch(`${import.meta.env.VITE_URL}/post`).then((response) => {
       response.json().then(posts => {
         setPosts(posts)
       })

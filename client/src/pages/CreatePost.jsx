@@ -1,24 +1,8 @@
-import React, { useState } from 'react'
-import ReactQuill from 'react-quill'
-import 'react-quill/dist/quill.snow.css'
+import React, { useContext, useState } from 'react'
 import { Navigate } from 'react-router-dom'
+import Editor from '../components/Editor'
+import {UserContext} from '../UserContext'
 
-const modules = {
-    toolbar: [
-      [{ 'header': [1, 2, false] }],
-      ['bold', 'italic', 'underline','strike', 'blockquote'],
-      [{'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}],
-      ['link', 'image'],
-      ['clean']
-    ],
-  }
-
-const formats = [
-'header',
-'bold', 'italic', 'underline', 'strike', 'blockquote',
-'list', 'bullet', 'indent',
-'link', 'image'
-]
 
 const CreatePost = (ev) => {
     const [title, setTitle] = useState('')
@@ -26,6 +10,7 @@ const CreatePost = (ev) => {
     const [content, setContent] = useState('')
     const [files, setFiles] = useState('')
     const [redirect, setRedirect] = useState(false)
+    const {userInfo} = useContext(UserContext)
 
     async function createNewPost(ev){
         const data = new FormData()
@@ -36,7 +21,7 @@ const CreatePost = (ev) => {
 
         ev.preventDefault();
 
-        const response = await fetch('http://localhost:4000/post', {
+        const response = await fetch(`${import.meta.env.VITE_URL}/post`, {
             method: 'POST',
             body: data,
             credentials: 'include',
@@ -54,6 +39,10 @@ const CreatePost = (ev) => {
     return <Navigate to={'/'}/>
   }
 
+  if(userInfo.id == null){
+    return <Navigate to={'/login'}/>
+  }
+
   return (
     <form onSubmit={createNewPost}>
         <input type="text" placeholder='Title' value={title} onChange={e => setTitle(e.target.value)}/>
@@ -62,7 +51,7 @@ const CreatePost = (ev) => {
             type="file" 
             onChange={e => setFiles(e.target.files)}
         />
-        <ReactQuill value={content} onChange={newValue => setContent(newValue)} modules={modules} formats={formats}/>
+        <Editor onChange={setContent} value={content}/>
         <button style={{marginTop:'15px'}}>Create Post</button>
     </form>
   )

@@ -1,12 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import { UserContext } from '../UserContext'
 
 const Header = () => {
   const {setUserInfo, userInfo} = useContext(UserContext);
+  const [redirect, setRedirect] = useState(false)
   
   useEffect(() => {
-    fetch('http://localhost:4000/profile', {
+    fetch(`/profile`, {
       credentials: 'include'
     }).then((response) => {
       response.json().then((userInfo) => {
@@ -16,12 +17,22 @@ const Header = () => {
   }, [])
 
   const logout = () => {
-    fetch('http://localhost:4000/logout', {
+    fetch('/logout', {
       credentials: 'include',
       method: 'POST'
     }).then((response) => {
       setUserInfo(null)
+      setRedirect(true)
+      alert('Logged out')
     })
+  }
+
+  if(redirect){
+    return (
+    <>
+      <Navigate to={'/'} />
+    </>
+    )
   }
 
   const username = userInfo?.username;
