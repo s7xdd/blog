@@ -97,6 +97,48 @@ input{
   background-color: #fff;
 }
 
+.confirm-page{
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.confirm-page h2{
+  margin: 2px;
+}
+
+.confirm-page span{
+  margin: 10px;
+}
+
+.confirm-page .yes-btn{
+  background-color: #FF0000;
+}
+
+.confirm-btn{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100px;
+  justify-content: center;
+}
+
+.confirm-page .no-btn{
+  width: 100%;
+  text-decoration: none;
+  text-align: center;
+  font-weight: lighter;
+  padding: 5px;
+  display: block;
+  border: 0;
+  color: #fff;
+  background-color: #555;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 button{
   width: 100%;
   padding: 5px;
@@ -177,3 +219,10 @@ div.post-page .edit-btn{
 div.post-page .edit-btn svg{
   height: 20px;
 }
+
+.post-page-btn{
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+

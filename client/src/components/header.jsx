@@ -28,11 +28,7 @@ const Header = () => {
   }
 
   if(redirect){
-    return (
-    <>
-      <Navigate to={'/'} />
-    </>
-    )
+    window.location.reload();
   }
 
   const username = userInfo?.username;

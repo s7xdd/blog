@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Navigate, useParams } from 'react-router-dom'
 import Editor from '../components/Editor'
+import { UserContext } from '../UserContext'
 
 const EditPost = () => {
     const [title, setTitle] = useState('')
@@ -9,9 +10,10 @@ const EditPost = () => {
     const [files, setFiles] = useState('')
     const [redirect, setRedirect] = useState(false)
     const {id} = useParams();
+    const {userInfo} = useContext(UserContext)
     
     useEffect(() => {
-        fetch(`${import.meta.env.VITE_URL}/post/`+id).then((response) => {
+        fetch(`${import.meta.env.VITE_URL}/post/${id}`).then((response) => {
             response.json().then(postInfo => {
                 setTitle(postInfo.title);
                 setSummary(postInfo.summary);
@@ -33,22 +35,28 @@ const EditPost = () => {
 
         ev.preventDefault();
 
-        const response = await fetch('/post', {
+        const response = await fetch(`${import.meta.env.VITE_URL}/post/`+id, {
             method: 'PUT',
             body: data,
             credentials: 'include',
         })
 
+        console.log(response)
+
         if(response.ok){
             alert('Post created successfully')
             setRedirect(true)
         } else{
-                alert('File is required')
+            alert('File is required')
         }
   }
 
   if(redirect){
     return <Navigate to={'/post/'+id}/>
+  }
+
+  if(userInfo.id == null){
+    return <Navigate to={'/login'}/>
   }
 
   return (

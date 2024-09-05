@@ -126,9 +126,10 @@ app.post('/post', uploadMiddleware.single('file'), async (req,res) => {
 
 })
 
-app.put('/post', uploadMiddleware.single('file'), async(req,res) => {
-
+app.put('/post/:id', uploadMiddleware.single('file'), async(req,res) => {
+   
     try {
+
         let newPath = null;
 
     if(req.file){
@@ -137,7 +138,6 @@ app.put('/post', uploadMiddleware.single('file'), async(req,res) => {
         const ext = parts[parts.length-1]
         newPath = path + '.' + ext
         fs.renameSync(path, newPath)
-        
     }
 
     const {token} = req.cookies;
@@ -146,6 +146,7 @@ app.put('/post', uploadMiddleware.single('file'), async(req,res) => {
         if(err) throw err;
         const{id, title, summary, content} = req.body;
         const postDoc = await PostModel.findById(id);
+
         const isAuthor = postDoc.author == info.id
         
         if(!isAuthor){
@@ -163,7 +164,7 @@ app.put('/post', uploadMiddleware.single('file'), async(req,res) => {
     })       
 
     } catch (error) {
-        res.status(400).json(error)    
+        console.log(error)  
     }
     
 })
@@ -180,10 +181,32 @@ app.get('/post/:id', async (req, res) => {
     res.json(post)
 })
 
+app.delete('/post/:id', async (req,res) => {
+    const {token} = req.cookies;
+    try {
+        jwt.verify(token, secret, {}, async (err,info) => {
+            if(err) throw err;
+            const {id} = req.params;
+            const postDoc = await PostModel.findById(id);
+            if(postDoc){
+                const isAuthor = postDoc.author == info.id
+                if(!isAuthor){
+                    return res.status(400).json('You are not the author')
+                }
+                await postDoc.deleteOne({_id: id});
+            }
+            res.status(200).json({msg: 'Success'});
+        })       
+    } catch (error) {
+        console.log(error)
+        res.status(400).json({msg: 'error'})
+    }
+})
+
 
 
 app.listen(4000, () => {
-    console.log("Listening")
+    console.log("Listening on 4000")
 }) 
 
 
