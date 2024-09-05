@@ -22,18 +22,21 @@ const Register = () => {
     }
   return (
     <form className='register' onSubmit={register}>
-        <h1>Register</h1>
-        <input 
-            type="text" 
-            placeholder='username' 
-            onChange={e => setUsername(e.target.value)}
-        />
-        <input 
-            type="text" 
-            placeholder='password' 
-            onChange={e => setPassword(e.target.value)}    
-        />
-        <button type='submit'>Register</button>
+        <div className='register-page'>
+            <h1>Register</h1>
+            <input 
+                type="text" 
+                placeholder='username' 
+                onChange={e => setUsername(e.target.value)}
+            />
+            <input 
+                type="text" 
+                placeholder='password' 
+                onChange={e => setPassword(e.target.value)}    
+            />
+            <button type='submit'>Register</button>
+        </div>
+        
     </form>
   )
  }

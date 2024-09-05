@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { Navigate, useParams } from 'react-router-dom'
+import { Link, Navigate, useParams } from 'react-router-dom'
 import Editor from '../components/Editor'
 import { UserContext } from '../UserContext'
 
@@ -60,16 +60,19 @@ const EditPost = () => {
   }
 
   return (
-    <form onSubmit={updatePost}>
-        <input type="text" placeholder='Title' value={title} onChange={e => setTitle(e.target.value)}/>
-        <input type="text" placeholder='Summary' value={summary} onChange={e => setSummary(e.target.value)} />
-        <input 
-            type="file" 
-            onChange={e => setFiles(e.target.files)}
-        />
-        <Editor onChange={setContent} value={content}/>
-        <button style={{marginTop:'15px'}}>Update Post</button>
-    </form>
+    <div className='update-post'>
+        <form onSubmit={updatePost}>
+            <input type="text" placeholder='Title' value={title} onChange={e => setTitle(e.target.value)}/>
+            <input type="text" placeholder='Summary' value={summary} onChange={e => setSummary(e.target.value)} />
+            <input 
+                type="file" 
+                onChange={e => setFiles(e.target.files)}
+            />
+            <Editor onChange={setContent} value={content}/>
+            <button style={{marginTop:'15px'}}>Update Post</button>
+        </form>
+    </div>
+    
   )
 }
 

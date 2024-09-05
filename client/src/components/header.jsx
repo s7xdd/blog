@@ -1,44 +1,18 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { Link, Navigate } from 'react-router-dom'
-import { UserContext } from '../UserContext'
+import NavbarTop from './Navbar';
+import Button from 'react-bootstrap/Button';
+import NavbarBrand from 'react-bootstrap/esm/NavbarBrand';
 
 const Header = () => {
-  const {setUserInfo, userInfo} = useContext(UserContext);
-  const [redirect, setRedirect] = useState(false)
-  
-  useEffect(() => {
-    fetch(`/profile`, {
-      credentials: 'include'
-    }).then((response) => {
-      response.json().then((userInfo) => {
-        setUserInfo(userInfo)
-      })
-    })
-  }, [])
-
-  const logout = () => {
-    fetch('/logout', {
-      credentials: 'include',
-      method: 'POST'
-    }).then((response) => {
-      setUserInfo(null)
-      setRedirect(true)
-      alert('Logged out')
-    })
-  }
-
-  if(redirect){
-    window.location.reload();
-  }
-
-  const username = userInfo?.username;
 
   return (
     <header>
-        <Link to="/" className="logo">MyBlog</Link>
+        <NavbarTop/>
+
+        {/* <Link to="/" className="logo">MyBlog</Link>
         <nav>
         {username && (
           <>
+            <span className='user-header'>Hello {username}!</span>
             <Link to='/create'>Create New Post</Link>
             <a onClick={logout}>Logout</a>
           </>
@@ -52,7 +26,7 @@ const Header = () => {
             
         )}
 
-        </nav>
+        </nav> */}
       </header>
   )
 }

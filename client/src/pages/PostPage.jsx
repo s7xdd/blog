@@ -21,6 +21,9 @@ const PostPage = () => {
 
   return (
     <div className='post-page'>
+        <Link to={'/'}
+                className='back-btn'
+        >back</Link>
         <h1>{postInfo.title}</h1>
         <div className='author-date'>{postInfo.author.username} | {format(new Date(postInfo.createdAt), 'MMM d, yyyy HH:mm')}</div>
         {userInfo.id === postInfo.author._id && (

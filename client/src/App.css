@@ -7,36 +7,29 @@ body{
 }
 
 main{
-  padding: 10px;
-  max-width: 960px;
-  margin: 0 auto;
+  margin: 0 50px 50px 50px;
 }
 
 img{
   max-width: 100%;
 }
 
-header{
+
+.login-page, .register-page{
+  width: 400px;
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 50px;
-  align-items: center;
-  margin-top: 20px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
 }
 
-header a{
-  text-decoration: none;
-  color: inherit;
-}
-
-header a.logo{
-  font-weight: bold;
-  font-size: 1.5rem;
-}
-
-header nav{
+form.login, form.register{
   display: flex;
-  gap: 15px;
+  justify-content: center;
+}
+
+.login-page, .register-page h1{
+  text-align: center;
 }
 
 .post{
@@ -46,7 +39,7 @@ header nav{
   margin-bottom: 4rem;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 850px) {
   div.post {
     grid-template-columns: 0.9fr 1.1fr;
   }
@@ -82,9 +75,23 @@ div.post p.summary{
   line-height: 1.4rem;
 }
 
-form.login form.register{
-  max-width: 400px;
-  margin: 0 auto;
+.back-btn{
+  width: 80px;
+  text-decoration: none;
+  text-align: center;
+  font-weight: lighter;
+  padding: 5px 20px;
+  border: 0;
+  color: black;
+  background-color: gainsboro;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.update-post{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 input{
@@ -159,9 +166,7 @@ input:focus{
   border-color: blue;
 }
 
-form.login h1 form.register h1{
-  text-align: center;
-}
+
 
 div.post-page div.image{ 
   max-height: 200px;
@@ -225,4 +230,6 @@ div.post-page .edit-btn svg{
   justify-content: center;
   gap: 15px;
 }
+
+
 
