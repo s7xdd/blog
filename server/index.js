@@ -196,6 +196,9 @@ app.get('/post/search/:title', async (req,res) => {
               ]
         })
         res.json(post)
+        if(!post){
+            res.status(400).json({msg: 'Not found'})
+        }
     } catch (error) {
         res.status(400).json({msg: 'Error'})
     }

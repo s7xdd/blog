@@ -1,14 +1,14 @@
 import "../styles/Navbar.css";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../UserContext";
-import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Form from "react-bootstrap/Form";
 
 const NavbarTop = () => {
+  const navigate = useNavigate();
   const { setUserInfo, userInfo } = useContext(UserContext);
   const [redirect, setRedirect] = useState(false);
   const [searchRedirect, setSearchRedirect] = useState(false)
@@ -25,7 +25,6 @@ const NavbarTop = () => {
   }, []);
 
   const search = (e) => {
-    e.preventDefault();
     setSearchRedirect(true);
   }
 
@@ -47,9 +46,8 @@ const NavbarTop = () => {
   }
 
   if(searchRedirect){
-    return(
-      <Navigate to={`/post/search/${searchArticle}`}/>
-    )
+    navigate(`/post/search/${searchArticle}`)
+    setSearchRedirect(false)
   }
 
   const username = userInfo?.username;
