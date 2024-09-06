@@ -1,3 +1,4 @@
+import '../styles/AllPosts.css'
 import React from "react";
 import Post from "../components/post";
 import { useState, useEffect } from "react";
@@ -14,7 +15,9 @@ const AllPosts = () => {
   }, []);
 
   return (
-    <div>{posts.length > 0 && posts.map((post) => <Post {...post} />)}</div>
+    <div className="allposts">
+      {posts.length > 0 && posts.map((post) => <Post {...post} />)}
+      </div>
   );
 };
 
