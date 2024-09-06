@@ -170,6 +170,11 @@ app.put('/post/:id', uploadMiddleware.single('file'), async(req,res) => {
 })
 
 
+app.get('/home/post', async (req,res) => {
+    const posts = await PostModel.find().populate('author', 'username').sort({createdAt: -1}).limit(6);
+    res.json(posts);
+})
+
 app.get('/post', async (req,res) => {
     const posts = await PostModel.find().populate('author', 'username');
     res.json(posts);

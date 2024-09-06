@@ -11,6 +11,8 @@ import CreatePost from './pages/CreatePost'
 import PostPage from './pages/PostPage'
 import EditPost from './pages/EditPost'
 import DeletePost from './pages/DeletePost'
+import Aboutme from './pages/Aboutme'
+import AllPosts from './pages/AllPosts'
 
 
 
@@ -26,6 +28,8 @@ function App() {
             <Route path='/login' element={<Login/>}/>
             <Route path='/register' element={<Register/>}/>
             <Route path='/create' element={<CreatePost/>}/>
+            <Route path='/aboutme' element={<Aboutme/>}/>
+            <Route path='/blogs' element={<AllPosts/>}/>
             <Route path='/post/:id' element={<PostPage/>}/>
             <Route path='/edit/:id' element={<EditPost/>}/>
             <Route path='/delete/:id' element={<DeletePost/>}/>

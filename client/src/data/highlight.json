@@ -1,0 +1,23 @@
+[
+    {
+      "title": "Top Freelance Web Designers, Developers, and Creatives...",
+      "img": "https://assets.awwwards.com/awards/images/2024/09/sotm-august-2024-thumbnail.jpg",
+      "author": "John",
+      "date": "Sept 4, 2024",
+      "content": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis inventore mollitia totam ducimus adipisci beatae temporibus illum assumenda impedit officia! Architecto obcaecati quas sunt quidem officia repellendus repudiandae explicabo blanditiis"
+                
+    },
+    {
+        "title": "Hello world",
+        "img": "https://assets.awwwards.com/awards/images/2024/09/sotm-august-2024-thumbnail.jpg",
+        "author": "Jessy",
+        "date": "Sept 6, 2024",
+        "content": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis inventore mollitia totam ducimus adipisci beatae temporibus illum assumenda impedit officia! Architecto obcaecati quas sunt quidem officia repellendus repudiandae explicabo blanditiis"
+      },
+       {
+      "title": "Top Freelance Web Designers, Developers, and Creatives...",
+      "img": "https://assets.awwwards.com/awards/images/2024/09/sotm-august-2024-thumbnail.jpg",
+      "author": "John",
+      "date": "Sept 4, 2024"
+    }
+] 

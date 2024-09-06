@@ -4,17 +4,11 @@ import Highlight from '../components/Highlight'
 import SidePost from '../components/SidePost'
 import RecentPosts from '../components/RecentPosts'
 import AllBlogPost from '../components/AllBlogPost'
+import hposts from '../data/highlight.json'
+
 
 
 const Home = () => {
-  const [posts, setPosts] = useState([])
-  useEffect(() => {
-    fetch(`${import.meta.env.VITE_URL}/post`).then((response) => {
-      response.json().then(posts => {
-        setPosts(posts)
-      })
-    })
-  }, [])
 
   return (
     <div className='homepage'>
@@ -29,8 +23,8 @@ const Home = () => {
             <h1 className='category'>Technology</h1>
           </div>
           <div className='banner-2'>
-            <SidePost/>
-            <SidePost/>
+            <SidePost title={hposts[0].title} date={hposts[0].date} img={hposts[0].img} content={hposts[0].content}/>
+            <SidePost title={hposts[1].title} date={hposts[1].date} img={hposts[1].img} content={hposts[1].content}/>
           </div>
           
         </div>

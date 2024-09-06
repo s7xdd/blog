@@ -7,19 +7,19 @@ import locomotiveScroll from 'locomotive-scroll';
 
 
 const Layout = () => {
-  const scrollRef = React.createRef();
+  // const scrollRef = React.createRef();
 
-  useEffect(() => {
-    const scroll = new locomotiveScroll({
-      el: scrollRef.current,
-      smooth: true
-    });
-  });
+  // useEffect(() => {
+  //   const scroll = new locomotiveScroll({
+  //     el: scrollRef.current,
+  //     smooth: true
+  //   });
+  // });
 
 
   return (
     <div className='layout'>
-      <div className='scroll' ref={scrollRef}>
+      <div className='scroll' >
         <Header />
         <Outlet />
       </div>
