@@ -16,9 +16,7 @@ import AllPosts from './pages/AllPosts'
 import About from './pages/About'
 import LuckyMe from './pages/LuckyMe'
 import Contact from './pages/Contact'
-
-
-
+import SearchArticle from './pages/SearchArticle'
 
 function App() {
 
@@ -37,6 +35,7 @@ function App() {
             <Route path='/luckyme' element={<LuckyMe/>}/>
             <Route path='/about' element={<About/>}/>
             <Route path='/post/:id' element={<PostPage/>}/>
+            <Route path='/post/search/:title' element={<SearchArticle/>}/>
             <Route path='/edit/:id' element={<EditPost/>}/>
             <Route path='/delete/:id' element={<DeletePost/>}/>
           </Route>

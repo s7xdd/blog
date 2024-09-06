@@ -186,6 +186,21 @@ app.get('/post/:id', async (req, res) => {
     res.json(post)
 })
 
+app.get('/post/search/:title', async (req,res) => {
+    const {title} = req.params;
+    try {
+        const post = await PostModel.find({
+            $or: [
+                { title: { $regex: title, $options: 'i' } },
+                { summary: { $regex: title, $options: 'i' } }
+              ]
+        })
+        res.json(post)
+    } catch (error) {
+        res.status(400).json({msg: 'Error'})
+    }
+})
+
 app.delete('/post/:id', async (req,res) => {
     const {token} = req.cookies;
     try {

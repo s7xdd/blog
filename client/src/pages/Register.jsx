@@ -1,3 +1,4 @@
+import '../styles/Login.css'
 import React, { useState } from 'react'
 import axios from 'axios'
 
@@ -21,23 +22,35 @@ const Register = () => {
         })
     }
   return (
-    <form className='register' onSubmit={register}>
-        <div className='register-page'>
-            <h1>Register</h1>
-            <input 
-                type="text" 
-                placeholder='username' 
-                onChange={e => setUsername(e.target.value)}
-            />
-            <input 
-                type="text" 
-                placeholder='password' 
-                onChange={e => setPassword(e.target.value)}    
-            />
-            <button type='submit'>Register</button>
+    <div className='mainContainer'>
+      <div className='titleContainer'>
+        <div>Register</div>
+      </div>
+      <br />
+      <form className='login' onSubmit={register}>
+        <div className='inputContainer'>
+          <input
+            type="text" 
+            placeholder='username' 
+            onChange={e => setUsername(e.target.value)}
+            className='inputBox'
+          />
         </div>
-        
-    </form>
+        <br />
+        <div className='inputContainer'>
+          <input
+            type="text" 
+            placeholder='password' 
+            onChange={e => setPassword(e.target.value)}
+            className='inputBox'
+          />
+        </div>
+        <br />
+        <div className='inputContainer'>
+          <input className='inputButton' type="submit" value={'Log in'} />
+        </div>
+      </form>
+    </div>
   )
  }
 
