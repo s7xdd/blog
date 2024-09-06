@@ -6,6 +6,9 @@ body{
   color: #222;
 }
 
+.scroll {
+  padding: 0 0 100vh;
+}
 
 img{
   max-width: 100%;
@@ -165,67 +168,12 @@ input:focus{
 
 
 
-div.post-page div.image{ 
-  max-height: 200px;
-  display: flex;
-  overflow: hidden;
-}
 
-div.post-page div.image img{
-  object-fit: cover;
-  object-position: center center;
-  width: 100%;
-}
 
-div.post-page a{
-  color: #333;
-  text-decoration: underline;
-}
-
-div.post-page h1{
-  text-align: center;
-  margin: 10px 0 5px;
-}
-
-div.post-page div.author-date{
-  font-size: 0.8rem;
-  padding-bottom: 15px;
-  text-align: center;
-}
-
-.post-content{
-  width: 100%;
-}
-
-div.post-page div.content{
-  line-height: 1.6rem;
-}
 
 .edit-post{
   text-align: center;
   margin-bottom: 20px;
-}
-
-div.post-page .edit-btn{
-  background-color: #333;
-  color: #fff;
-  display: inline-flex;
-  padding: 6px 20px;
-  text-decoration: none;
-  border-radius: 5px;
-  align-items: center;
-  gap: 5px;
-  font-size: 15px;
-}
-
-div.post-page .edit-btn svg{
-  height: 20px;
-}
-
-.post-page-btn{
-  display: flex;
-  justify-content: center;
-  gap: 15px;
 }
 
 

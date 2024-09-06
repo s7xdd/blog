@@ -1,15 +1,29 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Header from './components/header'
 import { Outlet } from 'react-router-dom'
 import SlidingBar from './components/SlidingBar'
+import locomotiveScroll from 'locomotive-scroll';
+
+
 
 const Layout = () => {
+  const scrollRef = React.createRef();
+
+  useEffect(() => {
+    const scroll = new locomotiveScroll({
+      el: scrollRef.current,
+      smooth: true
+    });
+  });
+
+
   return (
-    <main>
-        <SlidingBar/>
+    <div className='layout'>
+      <div className='scroll' ref={scrollRef}>
         <Header />
         <Outlet />
-    </main>
+      </div>
+    </div>
   )
 }
 

@@ -1,29 +1,24 @@
-.fresh-posts{
-    display: flex;
-    margin: 10px 10px 20px 20px;
+
+.homepage{
+  
 }
 
-@media screen and (min-width: 1200px)  {
-    .fresh-posts{
-        display: flex;
-        margin: 50px 50px 70px 50px;
-    }
+.start-title{
+    display: flex;
+    justify-content: center;
+    margin-top: 0;
+}
+
+.st-title{
+    height: 400px;
 }
 
 .highlight{
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
     background-color: rgb(248, 248, 248);
-    height: 620px;
-    padding: 20px 20px 0 0;
-    
-}
-
-@media screen and (min-width: 1200px)  {
-    .highlight{
-        display: flex;
-        flex-direction: row;
-    }
+    max-width: 100%;
 }
 
 
@@ -44,8 +39,6 @@
 }
 
 
-
-
 .highlight img{
     margin: 60px;
     width: 80%;
@@ -54,7 +47,7 @@
 }
 
 
-.highlight .highlight-text svg{
+.highlight .highlight-text svg, .banner-2 svg, .allblog1 svg{
     height: 20px;
     margin-right: 10px;
 }
@@ -63,3 +56,230 @@
     text-decoration: none;
 }
 
+.side-post1{
+    margin-top: 70px;
+    width: 600px;
+}
+
+.side-post1 img, h1{
+    width: 100%;
+}
+
+.banner-2-main{
+    display: flex;
+    flex-direction: column;    
+}
+
+.category{
+    margin-top: 90px;
+   font-size: 60px; 
+   margin-bottom: 0px;
+}
+
+.banner-2-title{
+    margin-left: 70px;
+}
+
+
+.banner-2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 130px;
+    gap: 200px;
+    justify-content: center;
+    
+}
+
+@media screen and (min-width: 1200px)  {
+    .fresh-posts{
+        display: flex;
+        margin: 50px 50px 70px 50px;
+    }
+
+    .highlight{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        height: 620px;
+        width: 100%;
+    }
+
+    .banner-2{
+        display: flex;
+        flex-direction: row;
+    }
+    
+}
+
+.banner-2-text{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.banner-2-content span{
+    margin-top: 20px;
+}
+
+.banner-2-content, .banner-2-content span, .banner-2-content p{
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.banner-2-content p{
+    width: 570px;
+    font-size: 20px;
+}
+
+.tag-btns{
+    display: flex;
+    gap: 5px;
+}
+
+.tag-btn1, .tag-btn2, .tag-btn3{
+    text-decoration: none;
+    align-items: center;
+    font-size: 12px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 5px;
+}
+
+.tag-btn1{
+    background-color: rgb(254, 112, 254);
+    color: rgb(104, 2, 104);
+}
+
+.tag-btn2{
+    background-color: rgb(178, 223, 255);
+    color: rgb(0, 100, 213);
+}
+
+.tag-btn3{
+    background-color: rgb(255, 173, 173);
+    color: rgb(146, 0, 0);
+}
+
+.recent-cont{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+}
+
+.recent-main{
+    max-width: 1300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.recent-title{
+    margin-bottom: 30px;
+}
+
+.recentposts, .recent-cont h4{
+    font-size: 22px;
+}
+
+.recentposts, .recent-cont span{
+    font-size: 14px;
+}
+
+.recentposts, .recent-cont p{
+    font-size: 15px;
+    color: lightslategray;
+}
+
+.recentposts{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 5px;
+}
+
+.recentsmall{
+    display: flex;
+    gap: 30px;
+}
+
+.recent-left{
+    max-width: 530px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.recent-right{
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    gap: 20px;
+}
+
+.recent-bottom{
+    max-width: 1300px;
+    display: flex;
+    gap: 20px;
+    margin-top: 50px;
+}
+
+.recent-bottom img{
+    height: fit-content;
+}
+
+.recent-btm-content{
+    max-width: 640px;
+}
+
+
+.blog-row-1{
+    display: flex;
+    gap: 30px;
+}
+
+.blog{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto;
+    row-gap: 80px;
+    column-gap: 50px;
+}
+
+.allbloginner{
+    max-width: 1600px;
+}
+
+.allbloginner h5.title{
+    font-weight: bolder;
+    font-size: 30px;
+    margin-bottom: 50px;
+}
+
+.allblog{  
+    display: flex;
+    justify-content: center;
+    margin-top: 70px;
+}
+
+.allblog1 img{
+    border-radius: 15px;
+}
+
+.allbloginner h5{
+    margin-bottom: 20px;
+}
+
+
+
+.footer{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(248, 248, 248);
+    padding-top: 20px;
+    padding-bottom: 20px;
+}

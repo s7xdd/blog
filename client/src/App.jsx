@@ -1,5 +1,6 @@
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import './styles/locomotive-scroll.css'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Home from './pages/Home'
 import Login from './pages/Login'
@@ -10,6 +11,9 @@ import CreatePost from './pages/CreatePost'
 import PostPage from './pages/PostPage'
 import EditPost from './pages/EditPost'
 import DeletePost from './pages/DeletePost'
+
+
+
 
 function App() {
 
