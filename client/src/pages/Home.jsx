@@ -4,7 +4,8 @@ import Highlight from '../components/Highlight'
 import SidePost from '../components/SidePost'
 import RecentPosts from '../components/RecentPosts'
 import AllBlogPost from '../components/AllBlogPost'
-import hposts from '../data/highlight.json'
+import hposts from '../data/technology.json'
+import highlights from '../data/highlight.json'
 
 
 
@@ -13,7 +14,7 @@ const Home = () => {
   return (
     <div className='homepage'>
         <div className='start-title'>
-          <Highlight/>
+          <Highlight title={highlights[0].title} cover={highlights[0].cover} author={highlights[0].author} content={highlights[0].content} createdAt={highlights[0].date}/>
         </div>
         <div>
           <AllBlogPost/>

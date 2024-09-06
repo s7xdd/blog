@@ -13,6 +13,9 @@ import EditPost from './pages/EditPost'
 import DeletePost from './pages/DeletePost'
 import Aboutme from './pages/Aboutme'
 import AllPosts from './pages/AllPosts'
+import About from './pages/About'
+import LuckyMe from './pages/LuckyMe'
+import Contact from './pages/Contact'
 
 
 
@@ -30,6 +33,9 @@ function App() {
             <Route path='/create' element={<CreatePost/>}/>
             <Route path='/aboutme' element={<Aboutme/>}/>
             <Route path='/blogs' element={<AllPosts/>}/>
+            <Route path='/contact' element={<Contact/>}/>
+            <Route path='/luckyme' element={<LuckyMe/>}/>
+            <Route path='/about' element={<About/>}/>
             <Route path='/post/:id' element={<PostPage/>}/>
             <Route path='/edit/:id' element={<EditPost/>}/>
             <Route path='/delete/:id' element={<DeletePost/>}/>

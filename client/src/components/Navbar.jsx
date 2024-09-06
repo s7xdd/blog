@@ -52,13 +52,13 @@ const NavbarTop = () => {
                 <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
                     <Nav.Link href="/">Home</Nav.Link>
-                    <Nav.Link href="/aboutme">About me</Nav.Link>
+                    <Nav.Link href="/blogs">Blogs</Nav.Link>
                     <NavDropdown title="More" id="basic-nav-dropdown">
-                        <NavDropdown.Item href="#action/3.1">Projects</NavDropdown.Item>
-                        <NavDropdown.Item href="/about">About</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.3">Love</NavDropdown.Item>
+                        <NavDropdown.Item href="/about">About this site</NavDropdown.Item>
+                        <NavDropdown.Item href="/luckyme">Lucky me</NavDropdown.Item>
+                        <NavDropdown.Item href="/aboutme">About me</NavDropdown.Item>
                         <NavDropdown.Divider />
-                        <NavDropdown.Item href="#action/3.4">
+                        <NavDropdown.Item href="/contact">
                             Contact me
                         </NavDropdown.Item>
                     </NavDropdown>

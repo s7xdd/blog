@@ -1,4 +1,4 @@
-import '../styles/AllPosts.css'
+import "../styles/AllPosts.css";
 import React from "react";
 import Post from "../components/post";
 import { useState, useEffect } from "react";
@@ -15,9 +15,16 @@ const AllPosts = () => {
   }, []);
 
   return (
-    <div className="allposts">
-      {posts.length > 0 && posts.map((post) => <Post {...post} />)}
+    <div className="allpost-cont">
+      <div className="allpost-inner-cont">
+        <div>
+          <h1>All Posts</h1>
+          <div className="allposts">
+            {posts.length > 0 && posts.map((post) => <Post {...post} />)}
+          </div>
+        </div>
       </div>
+    </div>
   );
 };
 

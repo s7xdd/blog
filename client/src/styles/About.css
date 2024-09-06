@@ -1,0 +1,21 @@
+
+.about-main{
+    background-color: rgb(1, 1, 73);
+}
+
+.about-main h1{
+    font-size: 80px;
+    font-weight: bolder;
+    margin-bottom: 45px;
+}
+
+.about-main p{
+    line-height: 40px;
+}
+
+.cont{
+    color: white;
+    height: 92.7vh;
+    width: 100wh;
+    align-items: center;
+}
