@@ -226,7 +226,7 @@ app.delete('/post/:id', async (req,res) => {
     }
 })
 
-app.put('/contactme', (req,res) => {
+app.post('/contactme', (req,res) => {
     const {Name, Email, Subject, Message} = req.body;
     res.json(`Thank you for contacting me. I will be in touch with you soon!`)
 
