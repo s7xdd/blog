@@ -26,7 +26,9 @@ const Editor = ({value, onChange} ) => {
             onChange={onChange} 
             theme={'snow'}    
             modules={modules} 
-            formats={formats} />
+            formats={formats} 
+            className='textEdit'
+            />
   )
 }
 

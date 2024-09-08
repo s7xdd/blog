@@ -13,7 +13,6 @@ img{
 
 
 
-
 .back-btn{
   width: 80px;
   text-decoration: none;
@@ -104,10 +103,6 @@ a{
 input:focus{
   border-color: blue;
 }
-
-
-
-
 
 
 .edit-post{
