@@ -29,7 +29,7 @@ const Contact = () => {
       };
 
       axios
-        .put(`${import.meta.env.VITE_URL}/contactme`, data)
+        .post(`${import.meta.env.VITE_URL}/contactme`, data)
         .then((response) => {
           setRedirect(true)
           alert(response.data)

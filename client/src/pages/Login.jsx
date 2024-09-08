@@ -27,8 +27,8 @@ const Login = (props) => {
       if(response.ok){
         response.json().then(userInfo => {
           alert('Login Successful')
-          setRedirect(true)
           setUserInfo(userInfo);
+          setRedirect(true);
         })
       }
 
