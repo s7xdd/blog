@@ -29,13 +29,12 @@ const NavbarTop = () => {
   }
 
     const logout = () => {
-      fetch("/logout", {
-        credentials: "include",
+      fetch(`${import.meta.env.VITE_URL}/logout`, {credentials: "include",
         method: "POST",
       }).then((response) => {
         setUserInfo(null);
-        setRedirect(true);
         alert("Logged out");
+        setRedirect(true);
       });
     };
 

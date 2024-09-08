@@ -1,16 +1,22 @@
-import React, { useContext, useState } from 'react'
-import { Navigate } from 'react-router-dom'
+import React, { useContext, useEffect, useState } from 'react'
+import { Navigate, useNavigate } from 'react-router-dom'
 import Editor from '../components/Editor'
 import {UserContext} from '../UserContext'
+import Cookies from 'js-cookie'
+
 
 
 const CreatePost = (ev) => {
+
     const [title, setTitle] = useState('')
     const [summary, setSummary] = useState('')
     const [content, setContent] = useState('')
     const [files, setFiles] = useState('')
     const [redirect, setRedirect] = useState(false)
+    const [cookies, setCookies] = useState();
     const {userInfo} = useContext(UserContext)
+    const navigate = useNavigate()
+   
 
     async function createNewPost(ev){
         const data = new FormData()

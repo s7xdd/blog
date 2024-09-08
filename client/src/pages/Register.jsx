@@ -12,7 +12,7 @@ const Register = () => {
 
         const data = {
             username: username,
-            password: password
+            password: password 
         }
 
         axios.post(`${import.meta.env.VITE_URL}/register`, data).then((response) => {

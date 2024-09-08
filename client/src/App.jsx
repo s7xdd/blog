@@ -38,6 +38,7 @@ function App() {
             <Route path='/post/search/:title' element={<SearchArticle/>}/>
             <Route path='/edit/:id' element={<EditPost/>}/>
             <Route path='/delete/:id' element={<DeletePost/>}/>
+            <Route path='*' element={<h1>Error 404. You have reached the desert</h1>}/>
           </Route>
         </Routes>
       </BrowserRouter>
