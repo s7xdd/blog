@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import "../styles/Contact.css";
 import axios from "axios";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Contact = () => {
+  const navigate = useNavigate()
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
@@ -40,7 +41,7 @@ const Contact = () => {
   };
 
   if(redirect){
-    return (<Navigate to={'/'}/>)
+    navigate(`/`)
   }
 
   return (
