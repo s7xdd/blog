@@ -6,11 +6,11 @@
 .about-main h1{
     font-size: 80px;
     font-weight: bolder;
-    margin-bottom: 45px;
+    margin-bottom: 10px;
 }
 
 .about-main p{
-    line-height: 40px;
+    line-height: 30px;
 }
 
 .cont{
