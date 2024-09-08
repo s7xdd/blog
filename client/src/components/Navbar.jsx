@@ -66,8 +66,6 @@ const NavbarTop = () => {
                 <NavDropdown.Item href="/about">
                   About this site
                 </NavDropdown.Item>
-                <NavDropdown.Item href="/luckyme">Lucky me</NavDropdown.Item>
-                <NavDropdown.Item href="/aboutme">About me</NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="/contact">Contact me</NavDropdown.Item>
               </NavDropdown>
