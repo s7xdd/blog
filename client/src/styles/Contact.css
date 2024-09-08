@@ -1,0 +1,24 @@
+.ContactForm{
+  height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ContactForm .container{
+  max-width: 750px;
+}
+
+.ContactForm .formRow {
+  margin: 10px 0 20px 0;
+}
+
+.ContactForm .formInput {
+  padding: 15px 10px;
+}
+
+.ContactForm .submit-btn {
+  padding: 15px 50px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+}
