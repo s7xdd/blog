@@ -4,7 +4,7 @@ import axios from 'axios'
 
 
 const Register = () => {
-    const [username, setUsername] = useState('hello')
+    const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 
     async function register(e){

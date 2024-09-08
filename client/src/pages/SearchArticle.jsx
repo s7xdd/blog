@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Navigate, useParams } from "react-router-dom";
-import NoResults from "../components/NoResults";
+import { useParams } from "react-router-dom";
 import BlogPost from "../components/BlogPost";
 
 const SearchArticle = () => {
@@ -13,6 +12,7 @@ const SearchArticle = () => {
       (response) => {
         response.json().then((posts) => {
           setPosts(posts);
+
         }).catch((err) => {
             console.log(err)
         })
@@ -22,13 +22,14 @@ const SearchArticle = () => {
 
 
 
+
   return (
     <div className="allpost-cont">
       <div className="allpost-inner-cont">
         <div>
           <h1>Search results</h1>
           <div className="allposts">
-            {posts.length>0 ? (posts.map((post) => <BlogPost {...post} />)) : <h1>Hello</h1>}
+            {posts.length>0 ? (posts.map((post) => <BlogPost {...post} />)) : <h1>No results</h1>}
           </div>
         </div>
       </div>
