@@ -15,7 +15,7 @@ const NavbarTop = () => {
   const [searchArticle, setSearchArticle] = useState("");
 
   useEffect(() => {
-    fetch(`/profile`, {
+    fetch(`${import.meta.env.VITE_URL}/profile`, {
       credentials: "include",
     }).then((response) => {
       response.json().then((userInfo) => {
