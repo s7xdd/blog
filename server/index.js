@@ -16,7 +16,7 @@ const fs = require('fs')
 var salt = bcrypt.genSaltSync(10);
 const secret = 'abcaaaabbbbccccaaaaabc'
 
-app.use(cors({credentials:true , origin: 'http://localhost:5173'}));
+app.use(cors({credentials:true , origin: process.env.ORIGIN_URL}));
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use('/uploads', express.static(__dirname + '/uploads'))
@@ -233,7 +233,7 @@ app.post('/contactme', (req,res) => {
 })
 
 
-app.listen(4000, () => {
+app.listen(process.env.PORT, () => {
     console.log("Listening on 4000")
 }) 
 
