@@ -235,6 +235,7 @@ app.post('/contactme', (req,res) => {
 
 app.listen(process.env.PORT, () => {
     console.log("Listening on 4000")
+    console.log(process.env.ORIGIN_URL)
 }) 
 
 
