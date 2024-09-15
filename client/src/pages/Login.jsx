@@ -31,6 +31,9 @@ const Login = (props) => {
           setRedirect(true);
         })
       }
+      else{
+        alert('Wrong credentials')
+      }
 
   }
 

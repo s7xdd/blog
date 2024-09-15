@@ -1,4 +1,4 @@
-import "../styles/AllPosts.css";
+import "../styles/Allposts.css";
 import React from "react";
 import Post from "../components/post";
 import { useState, useEffect } from "react";
