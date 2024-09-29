@@ -17,7 +17,7 @@ const AllPosts = () => {
   return (
     <div className="allpost-cont">
       <div className="allpost-inner-cont">
-        <div>
+        <div className="inner">
           <h1>All Posts</h1>
           <div className="allposts">
             {posts.length > 0 && posts.map((post) => <Post {...post} />)}

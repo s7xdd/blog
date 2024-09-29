@@ -21,7 +21,7 @@ const Post = ({
         </Link>
       </div>
 
-      <div className="texts">
+      <div className="texts" style={{maxWidth: '560px'}}>
         <Link to={`/post/${_id}`}>
           <h2>{title}</h2>
         </Link>
