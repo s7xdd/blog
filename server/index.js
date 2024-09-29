@@ -176,8 +176,18 @@ app.get('/home/post', async (req,res) => {
 })
 
 app.get('/post', async (req,res) => {
-    const posts = await PostModel.find().populate('author', 'username');
-    res.json(posts);
+    const {token} = req.cookies;
+
+    jwt.verify(token, secret, {}, async (err, info) => {
+        if (err) throw err;
+
+        const post = await PostModel.find({author: info.id});
+        res.json(post)
+        if(!post){
+            res.status(400).json({msg: 'Not found'})
+        }
+
+        });
 })
 
 app.get('/post/:id', async (req, res) => {
@@ -234,7 +244,7 @@ app.post('/contactme', (req,res) => {
 
 
 app.listen(process.env.PORT, () => {
-    console.log("Listening on 4000")
+    console.log(`Listening on port ${process.env.PORT}`)
     console.log(process.env.ORIGIN_URL)
 }) 
 

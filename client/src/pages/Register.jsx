@@ -47,7 +47,7 @@ const Register = () => {
         </div>
         <br />
         <div className='inputContainer'>
-          <input className='inputButton' type="submit" value={'Log in'} />
+          <input className='inputButton' type="submit" value={'Register'} />
         </div>
       </form>
     </div>
