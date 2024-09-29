@@ -22,7 +22,6 @@ const AllBlogPost = () => {
                 {posts.length > 0 && posts.map((post) => (
                   <BlogPost {...post}/>
                 ))}
-                
             </div>
         </div>
     </div>
