@@ -39,7 +39,7 @@ const Register = () => {
         <br />
         <div className='inputContainer'>
           <input
-            type="text" 
+            type="password" 
             placeholder='password' 
             onChange={e => setPassword(e.target.value)}
             className='inputBox'
