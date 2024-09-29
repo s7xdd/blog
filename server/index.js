@@ -16,7 +16,14 @@ const fs = require('fs')
 var salt = bcrypt.genSaltSync(10);
 const secret = 'abcaaaabbbbccccaaaaabc'
 
-app.use(cors({credentials:true , origin: process.env.ORIGIN_URL}));
+const corsOptions = {
+  origin: process.env.ORIGIN_URL,
+  credentials: true,
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS'
+};
+
+app.use(cors(corsOptions));
+
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use('/uploads', express.static(__dirname + '/uploads'))
