@@ -1,0 +1,19 @@
+.update-post{
+
+}
+
+.post{
+    display: flex;
+    margin: 70px 100px 0px 100px;
+    flex-direction: column;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.post button{
+    
+}

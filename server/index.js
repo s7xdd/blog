@@ -183,18 +183,12 @@ app.get('/home/post', async (req,res) => {
 })
 
 app.get('/post', async (req,res) => {
-    const {token} = req.cookies;
 
-    jwt.verify(token, secret, {}, async (err, info) => {
-        if (err) throw err;
-
-        const post = await PostModel.find({author: info.id});
+        const post = await PostModel.find();
         res.json(post)
         if(!post){
             res.status(400).json({msg: 'Not found'})
         }
-
-        });
 })
 
 app.get('/post/:id', async (req, res) => {
