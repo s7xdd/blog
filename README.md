@@ -1,4 +1,4 @@
-<h1>BookMyHotel</h1>
+<h1>Blog</h1>
 <p>A Blog application built with authentication and authorization mechanisms allowing users to login and create blogs.</p>
 
 <h1>Tools Used</h1>
