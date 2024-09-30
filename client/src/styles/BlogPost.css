@@ -1,7 +1,16 @@
 a{
     text-decoration: none;
-    h2 {
+    h4 {
         color: black;
     }
 }
+
+p{
+    font-size: 13px;
+}
+
+span{
+    font-size: 13px;
+}
+
 

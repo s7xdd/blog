@@ -7,11 +7,11 @@ import '../styles/BlogPost.css'
 const BlogPost = ({_id, key, title, content, summary, cover, createdAt, author}) => {
   return (
     <div className='allblog1'>
-         <img src={`${import.meta.env.VITE_URL}/`+cover} width={500} height={320} alt="" />
-        <div style={{maxWidth: '500px'}}>
+         <img src={`${import.meta.env.VITE_URL}/`+cover} width={400} height={250} alt="" />
+        <div style={{maxWidth: '410px'}}>
             <span className='d-flex pt-4 pb-1'>{author.username} • {format(new Date(createdAt), 'MMM d, yyyy HH:mm')}</span>
             <a href={`/post/${_id}`}>
-            <h2>{title}</h2>
+            <h4>{title}</h4>
             </a>
             <p>
               

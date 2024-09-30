@@ -251,9 +251,35 @@
     display: grid;
     grid-template-columns: auto auto auto;
     grid-template-rows: auto auto;
-    row-gap: 80px;
-    column-gap: 50px;
+   row-gap: 80px;
+   column-gap: 50px;
 }
+
+@media (max-width: 767px) { 
+    .blog{
+        display: grid;
+        padding: 20px;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto auto;
+       row-gap: 80px;
+       column-gap: 50px;
+    }
+}
+
+@media (max-width: 480px) { 
+    .blog{
+        display: grid;
+        grid-template-columns: auto;
+        margin: 0;
+    }
+    .allbloginner{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        margin-left: 10%;
+    }
+}
+
 
 .allbloginner{
     max-width: 1600px;
