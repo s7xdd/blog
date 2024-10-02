@@ -66,7 +66,7 @@ const NavbarTop = () => {
                   About this site
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="/contact">Contact me</NavDropdown.Item>
+                <NavDropdown.Item href="/contact">Find me!</NavDropdown.Item>
               </NavDropdown>
             </Nav>
             <Form className="d-flex" onSubmit={search}>
