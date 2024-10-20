@@ -20,7 +20,9 @@ const AllPosts = () => {
         <div className="inner">
           <h1>All Posts</h1>
           <div className="allposts">
-            {posts.length > 0 && posts.map((post) => <Post {...post} />)}
+            {posts.length > 0 ? (posts.map((post) => <Post {...post} />)) : (
+              <div className="loader"></div>
+            )}
           </div>
         </div>
       </div>

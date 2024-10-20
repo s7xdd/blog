@@ -60,7 +60,7 @@ const NavbarTop = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/blogs">Blogs</Nav.Link>
+              <Nav.Link href="/blogs">Blogs</Nav.Link>``
               <NavDropdown title="More" id="basic-nav-dropdown">
                 <NavDropdown.Item href="/about">
                   About this site

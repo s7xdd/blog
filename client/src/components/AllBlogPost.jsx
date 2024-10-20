@@ -19,9 +19,11 @@ const AllBlogPost = () => {
         <div className='allbloginner'>
             <h5 className='title'>Latest News</h5>
             <div className='blog'>
-                {posts.length > 0 && posts.map((post) => (
+                {posts.length > 0 ? (posts.map((post) => (
                   <BlogPost {...post}/>
-                ))}
+                ))) : (
+                  <div className='loader'></div>
+                )}
             </div>
         </div>
     </div>
