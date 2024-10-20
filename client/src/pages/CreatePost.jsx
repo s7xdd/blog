@@ -33,7 +33,7 @@ const CreatePost = (ev) => {
       alert("Post created successfully");
       setRedirect(true);
     } else {
-      alert("File is required");
+      alert('Error');
     }
   }
 

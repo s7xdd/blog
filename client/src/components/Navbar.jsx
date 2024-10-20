@@ -55,7 +55,7 @@ const NavbarTop = () => {
     <div className="navbar-header">
       <Navbar expand="lg">
         <div className="navbar-elements">
-          <Navbar.Brand>MyBlog</Navbar.Brand>
+          <Navbar.Brand className="fw-bolder">MyBlog</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto align-items-center flex gap-3">

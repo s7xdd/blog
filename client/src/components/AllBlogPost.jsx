@@ -22,7 +22,7 @@ const AllBlogPost = () => {
                 {posts.length > 0 ? (posts.map((post) => (
                   <BlogPost {...post}/>
                 ))) : (
-                  <div className='loader'></div>
+                  <div className='loader d-flex justify-content-center'></div>
                 )}
             </div>
         </div>

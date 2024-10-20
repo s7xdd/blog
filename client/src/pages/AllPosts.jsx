@@ -21,7 +21,7 @@ const AllPosts = () => {
           <h1>All Posts</h1>
           <div className="allposts">
             {posts.length > 0 ? (posts.map((post) => <Post {...post} />)) : (
-              <div className="loader"></div>
+              <div className="loader d-flex justify-content-center"></div>
             )}
           </div>
         </div>
