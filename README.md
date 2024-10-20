@@ -1,6 +1,8 @@
 <h1>Blog</h1>
 <p>A Blog application built with authentication and authorization mechanisms allowing users to login and create blogs.</p>
 
+Live : https://blog-s7xdd.onrender.com/
+
 <h1>Tools Used</h1>
 <ul>
   <li>ViteJs</li>
