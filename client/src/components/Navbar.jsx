@@ -58,9 +58,9 @@ const NavbarTop = () => {
           <Navbar.Brand>MyBlog</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/blogs">Blogs</Nav.Link>``
+            <Nav className="me-auto align-items-center flex gap-3">
+              <Link to="/">Home</Link>
+              <Link to="/blogs">Blogs</Link>
               <NavDropdown title="More" id="basic-nav-dropdown">
                 <NavDropdown.Item href="/about">
                   About this site
