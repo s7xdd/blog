@@ -235,7 +235,6 @@ app.get('/post/search/:title', async (req,res) => {
 app.delete('/post/:id', async (req,res) => {
     const {token} = req.cookies;
     if(token){
-
         try {
             jwt.verify(token, secret, {}, async (err,info) => {
             if(err) throw err;
