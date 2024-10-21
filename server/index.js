@@ -87,15 +87,19 @@ app.post('/login', async (req,res) => {
 
 app.get('/profile', (req,res) => {
     const {token} = req.cookies;
+    if(token){
 
-    try {
-        jwt.verify(token, secret, {}, (err,info) => {
+        try {
+            jwt.verify(token, secret, {}, (err,info) => {
             if(err) throw err;
             res.json(info)
         })   
     } catch (error) {
         res.status(400).json(error) 
     }
+} else {
+    res.status(400).json({mssg: "Error"})
+}
      
 })
 
@@ -144,7 +148,6 @@ app.post('/post', uploadMiddleware.single('file'), async (req,res) => {
 app.put('/post/:id', uploadMiddleware.single('file'), async(req,res) => {
    
     try {
-
         let newPath = null;
 
     if(req.file){
@@ -157,31 +160,37 @@ app.put('/post/:id', uploadMiddleware.single('file'), async(req,res) => {
 
     const {token} = req.cookies;
 
-    jwt.verify(token, secret, {}, async (err,info) => {
+    if(token){
+
+        
+        jwt.verify(token, secret, {}, async (err,info) => {
         if(err) throw err;
         const{id, title, summary, content} = req.body;
         const postDoc = await PostModel.findById(id);
-
+        
         const isAuthor = postDoc.author == info.id
         
         if(!isAuthor){
             return res.status(400).json('You are not the author')
         }
-
+        
         postDoc.title = title;
         postDoc.summary = summary;
         postDoc.content = content;
         postDoc.cover = newPath ? newPath : postDoc.cover
-
+        
         await postDoc.save();
-
+        
         res.json(postDoc);
     })       
-
-    } catch (error) {
-        console.log(error)  
-    }
     
+    } else {
+        res.status(400).json({msg: 'Error'})
+    }
+} catch (error) {
+    console.log(error)  
+}
+
 })
 
 
@@ -225,8 +234,10 @@ app.get('/post/search/:title', async (req,res) => {
 
 app.delete('/post/:id', async (req,res) => {
     const {token} = req.cookies;
-    try {
-        jwt.verify(token, secret, {}, async (err,info) => {
+    if(token){
+
+        try {
+            jwt.verify(token, secret, {}, async (err,info) => {
             if(err) throw err;
             const {id} = req.params;
             const postDoc = await PostModel.findById(id);
@@ -243,6 +254,10 @@ app.delete('/post/:id', async (req,res) => {
         console.log(error)
         res.status(400).json({msg: 'error'})
     }
+ }
+ else {
+    res.status(400).json({msg: 'Error'})
+ }
 })
 
 app.post('/contactme', (req,res) => {
